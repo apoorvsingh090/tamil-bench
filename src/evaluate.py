@@ -213,7 +213,8 @@ def main():
         outp.write_text(json.dumps({"rows": rows,
             "per_track": {k: {"n": v["n"], "acc": v["exact"]/v["n"] if v["n"] else 0,
             "avg_f1": v["f1_sum"]/v["n"] if v["n"] else 0,
-            "auto_n": v["auto_n"]} for k, v in per_track.items()}},
+            "auto_n": v["auto_n"], "auto_exact": v["auto_exact"],
+            "judge_needed": v["judge_needed"]} for k, v in per_track.items()}},
             ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"wrote {args.out}")
 

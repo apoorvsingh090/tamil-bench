@@ -22,7 +22,7 @@ correct Tamil** — from primary `A1` to advanced `C1`.
 | `ilakkanam` | cases, number/tense/person agreement, ன/ண/ந spelling (seed: 1 exemplar each; target: paradigms) | exact + token-F1 |
 | `surukkam` | summarization, no hallucination (seed passages distinct from vasippu) | LLM-judge + token-F1 informative |
 | `eluthu` | katturai, kaditham, uraiyadal, arivippu (60–200 words) | rubric 1–5 LLM-judge + human audit |
-| `nadai` | senthamizh/pechchu, dialects, Tanglish, Roman→Tamil (classical: zero in seed, target) | accuracy + style-appropriateness |
+| `nadai` | senthamizh/pechchu (generic; named dialects target), Tanglish, Roman→Tamil (classical: zero in seed, target) | accuracy + style-appropriateness |
 | `grounded` | 2-snippet toys in seed (target: multi-doc), cite `[பகுதி 1]`, abstain `தகவல் இல்லை` / deny with citation | accuracy + abstention rate; long-form via judge |
 
 Levels in seed v0.1.0: `A1:6 / A2:4 / B1:18 / B2:16 / C1:6`. Target adds classical/sangam C1 + long-doc.
