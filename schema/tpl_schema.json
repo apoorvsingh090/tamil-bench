@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TPL-Bench item",
+  "type": "object",
+  "required": ["id", "track", "level", "prompt_ta", "source", "version"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^TPL-[A-Z]{2}-[0-9]{3}$",
+      "description": "Stable ID, e.g. TPL-VA-001"
+    },
+    "track": {
+      "type": "string",
+      "enum": ["vasippu", "anumanam", "ilakkanam", "surukkam", "eluthu", "nadai", "grounded"]
+    },
+    "level": {
+      "type": "string",
+      "enum": ["A1", "A2", "B1", "B2", "C1"]
+    },
+    "passage_ta": {
+      "type": "string",
+      "description": "Optional reading passage in Tamil. Required for vasippu/surukkam/grounded."
+    },
+    "prompt_ta": {
+      "type": "string",
+      "description": "Instruction/question in Tamil. nadai-track items may contain documented Tanglish/English/Roman spans for robustness testing."
+    },
+    "choices": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 2,
+      "maxItems": 5,
+      "description": "For MCQ. Answer must exactly equal one choice."
+    },
+    "answer": {
+      "type": "string",
+      "description": "Reference answer in Tamil. For MCQ: the correct choice text."
+    },
+    "acceptable_answers": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Optional paraphrases accepted by exact-match scorer."
+    },
+    "rubric": {
+      "type": "object",
+      "description": "Required for eluthu/surukkam long-form. 1-5 criteria.",
+      "properties": {
+        "sari": {"type": "string"},
+        "thelivu": {"type": "string"},
+        "amaippu": {"type": "string"},
+        "porutham": {"type": "string"}
+      },
+      "additionalProperties": {"type": "string"}
+    },
+    "explanation_ta": {
+      "type": "string",
+      "description": "Why the answer is correct (for dev transparency)."
+    },
+    "source": {"type": "string"},
+    "version": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"track": {"const": "eluthu"}}},
+      "then": {"required": ["rubric"]}
+    },
+    {
+      "if": {"properties": {"track": {"const": "surukkam"}}},
+      "then": {"required": ["rubric", "passage_ta"]}
+    }
+  ]
+}

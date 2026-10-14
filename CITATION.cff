@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: "TPL-Bench: Tamil Reading-Writing Bench for Comprehension"
+message: "If you use TPL-Bench, please cite it as below."
+type: software
+authors:
+  - family-names: "TPL-Bench contributors"
+license: MIT
+version: 0.1.0
+date-released: 2026-10-14
+repository-code: "https://github.com/apoorvsingh090/tamil-bench"
+keywords:
+  - tamil
+  - llm-evaluation
+  - reading-comprehension
+  - natural-language-generation
+  - indic-nlp
