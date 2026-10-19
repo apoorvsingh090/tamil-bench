@@ -1,5 +1,9 @@
 # TPL-Bench — Tamil Reading-Writing Bench
 
+[![CI](https://img.shields.io/github/actions/workflow/status/apoorvsingh090/tamil-bench/ci.yml?branch=master)](https://github.com/apoorvsingh090/tamil-bench/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Python 3](https://img.shields.io/badge/python-stdlib%20only-blue.svg)](src)
+
 **Tamil reading + writing comprehension for AI models.**
 
 MIT-licensed, open, Tamil-first for scored content (prompts, passages,
@@ -93,6 +97,23 @@ tamil-bench/
 * Passages are short toys (≤60 words), not 150–800; classical/sangam coverage zero.
 * n=50 → per-track CIs ±15–30%. Don't leaderboard on seed alone.
 * Seed Tamil kept to standard written register; dialectal/pechchu depth is future work.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for item rules, levels, tracks, and
+the quality bar; [CHANGELOG.md](CHANGELOG.md) tracks releases. By
+participating you agree to the [Code of Conduct](CODE_OF_CONDUCT.md). Use
+the issue templates for bugs and feature requests; beginner-friendly issues
+carry the
+[`good first issue`](https://github.com/apoorvsingh090/tamil-bench/labels/good%20first%20issue)
+label.
+
+## Security
+
+Report benchmark-integrity or tooling vulnerabilities (hidden-test leaks,
+scorer exploits) privately via
+[GitHub Security Advisories](https://github.com/apoorvsingh090/tamil-bench/security/advisories);
+see [SECURITY.md](SECURITY.md).
 
 ## License
 
