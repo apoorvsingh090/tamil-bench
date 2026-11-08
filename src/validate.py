@@ -5,7 +5,7 @@ import re
 import sys
 from pathlib import Path
 
-ID_RE = re.compile(r"^TPL-[A-Z]{2}-[0-9]{3}$")
+ID_RE = re.compile(r"^TPL-[A-Z]{2}-[0-9]{3,4}$")
 TRACKS = {"vasippu", "anumanam", "ilakkanam", "surukkam", "eluthu", "nadai", "grounded"}
 LEVELS = {"A1", "A2", "B1", "B2", "C1"}
 ID_PREFIX = {"vasippu": "VA", "anumanam": "AN", "ilakkanam": "VY", "surukkam": "SU",
@@ -107,10 +107,11 @@ def main():
                 ok_all = False
                 continue
             _id = obj.get("id") if isinstance(obj, dict) else None
-            if _id in seen:
+            if isinstance(_id, str) and _id in seen:
                 print(f"line {i}: duplicate id '{_id}'", file=sys.stderr)
                 ok_all = False
-            seen.add(_id)
+            if isinstance(_id, str):
+                seen.add(_id)
             if not validate_item(obj, i):
                 ok_all = False
     print(f"checked {n} items in {path}")

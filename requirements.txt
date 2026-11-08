@@ -1,6 +1,8 @@
-# TPL-Bench requirements
-# Core eval has zero hard dependencies (stdlib only).
+# Core harness: Python stdlib only — no runtime install needed.
+# Dev tooling used by CI and the test suite:
+pytest>=8.0
+ruff>=0.5
 
-# Optional backends for src/run_local.py (core eval needs none of these).
-# transformers>=4.40; torch>=2.0  # --backend hf
-# (ollama, openai-compat and HF-API backends use stdlib urllib only)
+# Optional local-model backend (uncomment to run --backend hf):
+# transformers>=4.44
+# torch>=2.2

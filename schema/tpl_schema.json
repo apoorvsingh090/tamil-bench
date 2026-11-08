@@ -6,7 +6,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^TPL-[A-Z]{2}-[0-9]{3}$",
+      "pattern": "^TPL-[A-Z]{2}-[0-9]{3,4}$",
       "description": "Stable ID, e.g. TPL-VA-001"
     },
     "track": {
